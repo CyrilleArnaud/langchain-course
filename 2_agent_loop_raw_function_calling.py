@@ -96,7 +96,7 @@ tools_for_llm = [
 # Difference 3: Without LangChain, we must manually trace LLM calls for LangSmith
 
 
-@traceable(name="Ollama Chat")
+@traceable(name="Ollama Chat", run_type="llm")
 def ollama_chat_traced(messages):
     return ollama.chat(model=MODEL, tools=tools_for_llm, messages=messages)
 
@@ -178,7 +178,6 @@ def run_agent(question: str):
 
     print("Error: Max iterations reached without a final answer")
     return None
-
 
 
 if __name__ == "__main__":
